@@ -6,13 +6,13 @@
        private String password;
        private boolean loggedIn;
 
-    public BankAccount(String name, int accountNum, double balance, String password, boolean loggedIn)
+    public BankAccount(String name, int accountNum, double balance, String password)
     {
         this.name = name;
         this.accountNum = accountNum;
         this.balance = balance;
         this.password = password;
-        this.loggedIn = loggedIn;
+        this.loggedIn = false;
     }
 
     public boolean logIn(String name, String password)
@@ -28,9 +28,9 @@
         }
     }
 
-    public double withdraw(double amount)
+    public boolean withdraw(double amount)
     {
-        if(loggedIn.equals(true))
+        if(loggedIn == true)
         {
             balance -= amount;
             return true;
@@ -41,9 +41,9 @@
         }
     }
 
-    public double deposit(double amount)
+    public boolean deposit(double amount)
     {
-        if(loggedIn.equals(true))
+        if(loggedIn == true)
         {
             balance += amount;
             return true;
@@ -56,6 +56,6 @@
 
     public String toString()
     {
-        return "Account Number: " + accountNum;
+        return "Account Number: " + accountNum + "Balance: " + balance;
     }
 }
